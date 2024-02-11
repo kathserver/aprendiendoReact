@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import confetti from "canvas-confetti"
 import { Square } from './components/Square'
-import {TURNS } from './constants'
+import { TURNS } from './constants'
 import {checkWinner,checkEndGame} from './logic/board'
 import { WinnerModal } from './WinnerModal'
 import { saveGameToStorage, resetGameStorage } from './logic/storage'
@@ -74,6 +74,10 @@ function App() {
 
   }
 
+  // si se le pasa un array vacio, solo se va a ajecutarla primera vez que renderice 
+  useEffect(()=>{
+    console.log('useEffect')
+    },[winner])
   return(
     <main className="board">
       <h1>Tic tac toe</h1>
